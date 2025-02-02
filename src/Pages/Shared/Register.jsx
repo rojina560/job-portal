@@ -1,8 +1,12 @@
 import Lottie from 'lottie-react';
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import rregisterLottieData from '../../assets/Lottie/register.json'
+import AuthContext from '../../Context/AuthContext/AuthContex';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
+    const [success, setSuccess] = useState(false);
+    const [error,setError] = useState('')
   const handleRegister = e =>{
     e.preventDefault()
     const form = e.target;
@@ -12,8 +16,32 @@ const Register = () => {
       email,password
     }
     console.log(user);
+    // reset error status 
+    setError('')
+    setSuccess(false)
     // password validation 
-    // /^(?=.*[A-Z])(?=.*\d).{6,}$/ 
+    if(password.length < 6){
+      setError('password should at least 6 character or long')
+      return
+    }
+   
+    const passValidation = /^(?=.*[A-Z])(?=.*\d).$/;
+if (!passValidation.test(password)) {
+  setError('Password must be at least 6 characters long and include at least one uppercase letter and one number.');
+  return;
+}
+
+    //  
+    createUser(email,password)
+    .then(result =>{
+        console.log(result.user);
+        setSuccess(true)
+    })
+    .catch(err =>{
+        console.log(err.message);
+        setError(err.message)
+        setSuccess(false)
+    })
   }
     return (
         <div>
@@ -45,6 +73,10 @@ const Register = () => {
           <button className="btn btn-primary">Register</button>
         </div>
       </form>
+      {error && <p className='text-red-600 text-center pb-3'>{error}</p>}
+      {
+        success && <p className='text-green-500 text-center pb-3'> Sign up successfully..</p>
+      }
     </div>
   </div>
 </div>
