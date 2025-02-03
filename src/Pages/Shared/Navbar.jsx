@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../Context/AuthContext/AuthContex';
+import jobicon from '../../assets/Lottie/favicon.png'
 
 const Navbar = () => {
   const {user,signoutUser} = useContext(AuthContext)
@@ -43,7 +44,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="btn btn-ghost text-xl"><img src={jobicon} alt="" /> <h3>Job Portal</h3></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
