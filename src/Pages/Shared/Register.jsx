@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import React, { useContext, useState } from 'react';
 import rregisterLottieData from '../../assets/Lottie/register.json'
 import AuthContext from '../../Context/AuthContext/AuthContex';
+import SocilaLogin from './SocilaLogin';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
@@ -73,6 +74,7 @@ if (!passValidation.test(password)) {
           <button className="btn btn-primary">Register</button>
         </div>
       </form>
+      <SocilaLogin></SocilaLogin>
       {error && <p className='text-red-600 text-center pb-3'>{error}</p>}
       {
         success && <p className='text-green-500 text-center pb-3'> Sign up successfully..</p>
