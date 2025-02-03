@@ -32,6 +32,7 @@ const Banner = () => {
         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
         quasi. In deleniti eaque aut repudiandae et a id nisi.
       </p>
+      <p>this is job portal</p>
       <button className="btn btn-primary">Get Started</button>
     </div>
   </div>
