@@ -16,7 +16,7 @@ const Navbar = () => {
   }
     const links = <>
     <Link>home</Link>
-    <Link>blog</Link>
+    <Link to={'/myjob'}>My Applications</Link>
     <Link>contact</Link>
     </>
     return (

@@ -6,7 +6,7 @@ const HotjobsCart = ({job}) => {
     const { _id,company_logo, company, title, requirements,description,location, salaryRange
     } = job || {}
     return (
-    <div> <div className="card card-compact bg-base-100 h-[360px] shadow-xl">
+    <div className="card card-compact bg-base-100  shadow-xl">
       <div  className='flex gap-2 m-2'>
       <div>
   <figure>
@@ -39,7 +39,7 @@ const HotjobsCart = ({job}) => {
     </div>
   </div>
 </div>
-        </div>
+       
     );
 };
 
